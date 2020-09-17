@@ -21,14 +21,16 @@ public class MainActivity extends AppCompatActivity {
         AndroidFragment androidFragment = new AndroidFragment();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.liearlayoutContainer,androidFragment,"fragmentAndroid");
-        fragmentTransaction.commitNow();
+        fragmentTransaction.addToBackStack("FragmentAndroidStack");
+        fragmentTransaction.commit();
     }
 
     public void addIos(View view) {
         IosFragment iosFragment = new IosFragment();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.liearlayoutContainer,iosFragment,"fragmentIos");
-        fragmentTransaction.commitNow();
+        fragmentTransaction.addToBackStack("FragmentIosStack");
+        fragmentTransaction.commit();
     }
 
     public void replaceAndroid(View view) {
@@ -55,5 +57,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeIos(View view) {
+        IosFragment iosFragment = (IosFragment) mFragmentManager.findFragmentByTag("fragmentIos");
+        if (iosFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.remove(iosFragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    public void popbackstack(View view) {
+        mFragmentManager.popBackStack();
     }
 }
