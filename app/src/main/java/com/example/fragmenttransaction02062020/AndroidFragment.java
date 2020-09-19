@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 
 import java.util.Random;
 
-public class AndroidFragment extends Fragment implements OnListDataActivity{
+public class AndroidFragment extends Fragment{
 
 
     View v;
@@ -39,7 +39,13 @@ public class AndroidFragment extends Fragment implements OnListDataActivity{
     }
 
     @Override
-    public void receiveValue(String value) {
-        Log.d("BBB",value);
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ((MainActivity)getActivity()).getDataFormActivity(new OnListDataActivity() {
+            @Override
+            public void receiveValue(String value) {
+                Log.d("BBB",value);
+            }
+        });
     }
 }

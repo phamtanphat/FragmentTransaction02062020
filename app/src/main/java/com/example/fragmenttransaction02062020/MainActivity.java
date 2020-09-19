@@ -22,11 +22,13 @@ public class MainActivity extends AppCompatActivity {
     public void sendDataFragment(View view) {
         AndroidFragment androidFragment = (AndroidFragment) mFragmentManager.findFragmentById(R.id.fragmentAndroid);
         if (androidFragment != null){
-            mOnListDataActivity = androidFragment;
             mOnListDataActivity.receiveValue("hello");
         }
     }
 
+    public void getDataFormActivity(OnListDataActivity mOnListDataActivity){
+        this.mOnListDataActivity = mOnListDataActivity;
+    }
 //    public void addAndroid(View view) {
 //        AndroidFragment androidFragment = new AndroidFragment();
 //        Bundle bundle = new Bundle();
