@@ -80,14 +80,21 @@
         android:layout_below="@id/buttonRemoveios"
         android:layout_toRightOf="@id/buttonDetach"
         android:text="Attach" />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/liearlayoutContainer"
-        android:layout_width="match_parent"
+    <Button
+        android:onClick="sendDataFragment"
+        android:id="@+id/buttonSendData"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonPopBackStack">
+        android:layout_below="@id/buttonRemoveios"
+        android:layout_toRightOf="@id/buttonDetach"
+        android:text="Send data" />
 
-    </LinearLayout>
+    <fragment
+        android:name="com.example.fragmenttransaction02062020.AndroidFragment"
+        tools:layout="@layout/fragment_android"
+        android:id="@+id/fragmentAndroid"
+        android:layout_below="@id/buttonAttach"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 
 import java.util.Random;
 
-public class AndroidFragment extends Fragment {
+public class AndroidFragment extends Fragment implements OnListDataActivity{
 
 
     View v;
@@ -32,6 +32,14 @@ public class AndroidFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_android, container, false);
         mFrameLayout = v.findViewById(R.id.frameAndroid);
         mFrameLayout.setBackgroundColor(Color.rgb(new Random().nextInt(255),new Random().nextInt(255),new Random().nextInt(255)));
+//        Bundle bundle = getArguments();
+//        String chuoi = bundle.getString("string");
+//        Log.d("BBB",chuoi);
         return v;
+    }
+
+    @Override
+    public void receiveValue(String value) {
+        Log.d("BBB",value);
     }
 }
