@@ -66,6 +66,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void popbackstack(View view) {
-        mFragmentManager.popBackStack();
+        mFragmentManager.popBackStack(1 , FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    public void detach(View view) {
+        AndroidFragment androidFragment = (AndroidFragment) mFragmentManager.findFragmentByTag("fragmentAndroid");
+        if (androidFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.detach(androidFragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    public void attach(View view) {
+        AndroidFragment androidFragment = (AndroidFragment) mFragmentManager.findFragmentByTag("fragmentAndroid");
+        if (androidFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.attach(androidFragment);
+            fragmentTransaction.commit();
+        }
     }
 }
